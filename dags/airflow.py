@@ -30,11 +30,40 @@ with DAG(
     catchup=False,
 ) as dag:
     
-    # pipeline
-    data = load_data()
-    processed_data = data_preprocessing(data)
-    sse = build_save_model(processed_data, "model.sav")
-    load_model_elbow("model.sav", sse)
+    # Task to load data, calls the 'load_data' Python function
+    load_data_task = PythonOperator(
+        task_id='load_data_task',
+        python_callable=load_data,
+    )
+
+    # Task to perform data preprocessing, depends on 'load_data_task'
+    data_preprocessing_task = PythonOperator(
+        task_id='data_preprocessing_task',
+        python_callable=data_preprocessing,
+        op_args=[load_data_task.output]
+        # op_kwargs={
+        #     "data_b64":"{{ ti.xcom_pull(task_ids='load_data_task') }}"
+        # }
+    )
+
+    # Task to build and save a model, depends on 'data_preprocessing_task'
+    build_save_model_task = PythonOperator(
+        task_id='build_save_model_task',
+        python_callable=build_save_model,
+        op_args=[data_preprocessing_task.output, "model.sav"],
+
+    )
+
+    # Task to load a model using the 'load_model_elbow' function, depends on 'build_save_model_task'
+    load_model_task = PythonOperator(
+        task_id='load_model_task',
+        python_callable=load_model_elbow,
+        op_args=["model.sav", build_save_model_task.output],
+    )
+
+    # Set task dependencies
+    load_data_task >> data_preprocessing_task >> build_save_model_task >> load_model_task
+
     
 
 if __name__=="main":

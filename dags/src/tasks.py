@@ -7,10 +7,9 @@ from kneed import KneeLocator
 import pickle
 import os
 import base64
-from airflow.decorators import task
 
 
-@task()
+
 def load_data():
     """
     Loads data from a CSV file, serializes it, and returns the serialized data.
@@ -22,7 +21,7 @@ def load_data():
     serialized_data = pickle.dumps(df)                    # bytes
     return base64.b64encode(serialized_data).decode("ascii")  # JSON-safe string
 
-@task()
+
 def data_preprocessing(data_b64: str):
     """
     Deserializes base64-encoded pickled data, performs preprocessing,
@@ -42,7 +41,7 @@ def data_preprocessing(data_b64: str):
     clustering_serialized_data = pickle.dumps(clustering_data_minmax)
     return base64.b64encode(clustering_serialized_data).decode("ascii")
 
-@task()
+
 def build_save_model(data_b64: str, filename: str):
     """
     Builds a KMeans model on the preprocessed data and saves it.
@@ -68,7 +67,7 @@ def build_save_model(data_b64: str, filename: str):
 
     return sse  # list is JSON-safe
 
-@task()
+
 def load_model_elbow(filename: str, sse: list):
     """
     Loads the saved model and uses the elbow method to report k.
