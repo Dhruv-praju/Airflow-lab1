@@ -1,0 +1,17 @@
+[2026-01-01T01:55:31.840+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-01T01:55:31.929+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Airflow-Lab1.data_preprocessing scheduled__2026-01-01T01:45:00+00:00 [queued]>
+[2026-01-01T01:55:31.966+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Airflow-Lab1.data_preprocessing scheduled__2026-01-01T01:45:00+00:00 [queued]>
+[2026-01-01T01:55:31.969+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-01T01:55:32.003+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): data_preprocessing> on 2026-01-01 01:45:00+00:00
+[2026-01-01T01:55:32.036+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=3617) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-01-01T01:55:32.047+0000] {standard_task_runner.py:63} INFO - Started process 3635 to run task
+[2026-01-01T01:55:32.050+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Airflow-Lab1', 'data_preprocessing', 'scheduled__2026-01-01T01:45:00+00:00', '--job-id', '154', '--raw', '--subdir', 'DAGS_FOLDER/***.py', '--cfg-path', '/tmp/tmprin35i54']
+[2026-01-01T01:55:32.053+0000] {standard_task_runner.py:91} INFO - Job 154: Subtask data_preprocessing
+[2026-01-01T01:55:32.536+0000] {task_command.py:426} INFO - Running <TaskInstance: Airflow-Lab1.data_preprocessing scheduled__2026-01-01T01:45:00+00:00 [running]> on host 21d482eb38d8
+[2026-01-01T02:02:56.753+0000] {local_task_job_runner.py:214} ERROR - Heartbeat time limit exceeded!
+[2026-01-01T02:02:56.773+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-01-01T02:02:56.841+0000] {process_utils.py:132} INFO - Sending 15 to group 3635. PIDs of all processes in the group: [3635]
+[2026-01-01T02:02:56.872+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 3635
+[2026-01-01T02:02:56.969+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=3635, status='terminated', exitcode=<Negsignal.SIGTERM: -15>, started='01:55:31') (3635) terminated with exit code -15

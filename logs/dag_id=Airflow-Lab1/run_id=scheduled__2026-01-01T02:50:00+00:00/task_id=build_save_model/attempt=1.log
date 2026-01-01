@@ -1,0 +1,20 @@
+[2026-01-01T03:12:07.512+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-01-01T03:12:08.516+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: Airflow-Lab1.build_save_model scheduled__2026-01-01T02:50:00+00:00 [queued]>
+[2026-01-01T03:12:08.684+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: Airflow-Lab1.build_save_model scheduled__2026-01-01T02:50:00+00:00 [queued]>
+[2026-01-01T03:12:08.714+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-01-01T03:12:09.094+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): build_save_model> on 2026-01-01 02:50:00+00:00
+[2026-01-01T03:12:09.258+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61: DeprecationWarning: This process (pid=4143) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-01-01T03:12:09.334+0000] {standard_task_runner.py:63} INFO - Started process 4172 to run task
+[2026-01-01T03:12:09.413+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'Airflow-Lab1', 'build_save_model', 'scheduled__2026-01-01T02:50:00+00:00', '--job-id', '189', '--raw', '--subdir', 'DAGS_FOLDER/***.py', '--cfg-path', '/tmp/tmpfb9z13a_']
+[2026-01-01T03:12:09.440+0000] {standard_task_runner.py:91} INFO - Job 189: Subtask build_save_model
+[2026-01-01T03:12:11.035+0000] {task_command.py:426} INFO - Running <TaskInstance: Airflow-Lab1.build_save_model scheduled__2026-01-01T02:50:00+00:00 [running]> on host 21d482eb38d8
+[2026-01-01T03:12:14.279+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='Airflow-Lab1' AIRFLOW_CTX_TASK_ID='build_save_model' AIRFLOW_CTX_EXECUTION_DATE='2026-01-01T02:50:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-01T02:50:00+00:00'
+[2026-01-01T03:12:14.529+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-01-01T03:16:57.292+0000] {python.py:237} INFO - Done. Returned value was: [250.32804209291444, 128.89457877623198, 91.64796947554554, 72.46932731979092, 59.86327285249888, 52.06204237509105, 46.59718667780258, 41.503691835394164, 36.95114238763415, 33.98847132890033, 31.158175787006293, 28.841604325536117, 26.975244440370844, 25.310694604402563, 23.870878579148368, 22.74762480402989, 21.53078145664582, 20.78619821689672, 20.164955022705417, 19.365178250830517, 18.808369593226235, 18.34056086640735, 17.910673647108286, 17.498696101453294, 16.925499000396083, 16.745697587901503, 15.97184956673628, 15.713641610762616, 15.265240945761882, 15.123488668482388, 14.956846830736167, 14.5644048677804, 14.346219766384522, 14.241510405343842, 13.87856494898141, 13.709270074630073, 13.32304196135448, 13.14053259276687, 12.780547568395743, 12.902743776484673, 12.781639801700797, 12.407094113235535, 11.969429488066993, 12.042173765648126, 11.86250988778875, 11.75906078767697, 11.511387460490857, 11.707834596270327, 11.459746173831949]
+[2026-01-01T03:16:57.303+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-01-01T03:16:57.393+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=Airflow-Lab1, task_id=build_save_model, run_id=scheduled__2026-01-01T02:50:00+00:00, execution_date=20260101T025000, start_date=20260101T031208, end_date=20260101T031657
+[2026-01-01T03:16:57.471+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-01-01T03:16:57.541+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-01-01T03:16:57.544+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
