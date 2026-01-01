@@ -7,7 +7,7 @@ In this simple lab, we create a pipeline(or DAG) that loads the data, performs p
 This lab does not require installation of airflow. Airflow is installed and runned inside docker
 
 Reference for the lab is:\
-https://www.mlwithramin.com/blog/airflow-lab1\
+https://www.mlwithramin.com/blog/airflow-lab1
 https://github.com/raminmohammadi/MLOps/tree/main/Labs/Airflow_Labs/Lab_1
 
 To run this lab project on your machine:
